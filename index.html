@@ -1,0 +1,274 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Student Expense Tracker</h1>
+
+            <p class="subtitle">
+                Track, manage and understand your daily spending.
+            </p>
+        </header>
+
+
+        <!-- Dashboard -->
+
+        <div class="dashboard">
+
+            <div class="stat-card">
+                <span class="stat-label">Total Spent</span>
+                <strong>₹<span id="totalAmount">0</span></strong>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">Total Expenses</span>
+                <strong id="expenseCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- Add / Edit Expense -->
+
+        <section class="card">
+
+            <h2 id="formTitle">Add Expense</h2>
+
+            <form id="expenseForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="expense">
+                            Expense Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="expense"
+                            placeholder="e.g. Lunch"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="amount">
+                            Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="e.g. 100"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="category">
+                            Category
+                        </label>
+
+                        <select id="category">
+
+                            <option value="Food">Food</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Education">Education</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+                            <option value="Bills">Bills</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="date">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button type="submit" id="submitButton">
+                        Add Expense
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="secondary-button hidden"
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Filters -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>My Expenses</h2>
+
+                <div class="action-buttons">
+
+                    <button
+                        type="button"
+                        id="exportButton"
+                        class="secondary-button"
+                    >
+                        Export CSV
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clearButton"
+                        class="danger-button"
+                    >
+                        Clear All
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+                <div class="form-group">
+
+                    <label for="search">
+                        Search
+                    </label>
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search expenses..."
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="filterCategory">
+                        Category
+                    </label>
+
+                    <select id="filterCategory">
+
+                        <option value="All">
+                            All Categories
+                        </option>
+
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Education">
+                            Education
+                        </option>
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+                        <option value="Bills">Bills</option>
+                        <option value="Other">Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="sortBy">
+                        Sort By
+                    </label>
+
+                    <select id="sortBy">
+
+                        <option value="newest">
+                            Newest First
+                        </option>
+
+                        <option value="oldest">
+                            Oldest First
+                        </option>
+
+                        <option value="high">
+                            Amount: High to Low
+                        </option>
+
+                        <option value="low">
+                            Amount: Low to High
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div id="expenseList"></div>
+
+            <p
+                id="emptyMessage"
+                class="empty-message"
+            >
+                No expenses found.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
+
